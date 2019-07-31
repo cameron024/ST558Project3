@@ -11,11 +11,12 @@ shinyServer(function(input, output, session) {
   
   # Figure out how to have nfl read in by running app without requiring user input
   
-  # Read in data 
-  nfl <- reactive({
-    read.csv("/Users/Cameron_E/ShinyApps/Project 3/pbp-2018.csv") 
-    nfl <- nfl %>% select(OffenseTeam, DefenseTeam, Down, ToGo, Yards, Formation, PlayType, PassType, IsIncomplete, RushDirection, IsFumble)
+  # Link to data
+  url <- a("NFL Data 2018", href = "http://nflsavant.com/about.php")
+  output$link <- renderUI({
+    tagList("URL link:", url)
   })
+
   
   # Create data frame for team average statistics
   teams <- as.vector(unique(na.omit(nfl$OffenseTeam)))

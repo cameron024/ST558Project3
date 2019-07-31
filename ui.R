@@ -8,6 +8,7 @@ shinyUI(navbarPage("NFL 2018",
   # Tab 1: Information
   tabPanel("Information",
            h1("NFL 2018 Data Analysis"),
+           uiOutput("link"),
            column(6,
              h3("Data Exploration"),
                h6("1. Contains filtering ability by Team, Unit, and Play Type \n"),
